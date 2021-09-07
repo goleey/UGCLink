@@ -58,14 +58,6 @@ class MatchPyramidClassifier(object):
         for i in range(self.params.n_epochs):
             self.train()
             acc, precision, recall, f1, auc_score = self.evaluate()
-            if max_acc < acc:
-                max_acc = acc
-                max_precision = precision
-                max_recall = recall
-                max_f1 = f1
-                max_auc = auc
-            self.epoch_cnt += 1
-        print(max_acc, max_precision, max_recall, max_f1, max_auc)
 
     def train(self):
         logger.info("Training in epoch %i" % self.epoch_cnt)
